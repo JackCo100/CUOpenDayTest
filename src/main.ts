@@ -46,6 +46,7 @@ function renderOpenDay(data: any) {
                     <th class="text-cardiff-red font-bold border-b border-cardiff-light-grey bg-gray-200 w-1/10">End Time</th>
                     <th class="text-cardiff-red font-bold border-b border-cardiff-light-grey bg-gray-200 w-2/10">Building Address</th>
                     <th class="text-cardiff-red font-bold border-b border-cardiff-light-grey bg-gray-200 w-1/10">Room</th>
+                    <th class="text-cardiff-red font-bold border-b border-cardiff-light-grey bg-gray-200 w-1/10">Info</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -56,8 +57,15 @@ function renderOpenDay(data: any) {
                       <td class="text-cardiff-dark text-wrap border-b border-cardiff-light-grey">${new Date(program.end_time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</td>
                       <td class="text-cardiff-dark text-wrap border-b border-cardiff-light-grey">${program.location.title}, ${program.location.address}</td>
                       <td class="text-cardiff-dark text-wrap border-b border-cardiff-light-grey">${program.room ? program.room : 'Reception'}</td>
+                      <td class="text-cardiff-dark text-wrap border-b border-cardiff-light-grey"> <button class="btn bg-cardiff-red text-white" onClick="mod${program.id}.showModal()"')">More Info</button> </td>
                     </tr>
-                    
+                    <dialog id="mod${program.id}">
+                      <div class="bg-white p-4">
+                        <h2 class="m-4 text-cardiff-red">${program.title}</h2>
+                        <p class="text-cardiff-dark">${program.description}</p>
+                        <button onClick="mod${program.id}.close()" class="mt-4">Close</button>
+                        </div>
+                      </dialog>
                   `: '').join('')}
                 </ul>
               </div>
