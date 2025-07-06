@@ -24,13 +24,13 @@ function renderOpenDay(data: any) {
       </a>
     </div>
     <h1 class="text-3xl sm:text-5xl font-bold text-cardiff-red mb-2 text-center">Cardiff University Open Day</h1>
-    <p class=" text-l text-cardiff-dark mb-4">Welcome to the Cardiff University Open Day website, here you can find out about all the events by school across campus.</p>
+    <p class="text-l text-cardiff-dark mb-4">Welcome to the Cardiff University Open Day website, here you can find out about all the events by school across campus.</p>
     <div class="grid gap-4 grid-cols-1 sm:grid-cols-1 lg:grid-cols-1">
       ${data.topics.map((topic: any) => topic && topic.name ? `
-        <div class="w-100 p-2">
-          <div class="border border-gray-400 p-2">
+        <div class="w-full p-2">
+          <div class="border border-gray-400 rounded-md p-2">
             <div class="mb-4">
-              <img class="h-30 w-30 object-cover" src="${topic.cover_image}" />
+              <img class="h-1/3 w-1/2 object-cover mx-auto" src="${topic.cover_image}" />
               <div class="text-cardiff-red font-bold text-xl mb-2">${topic.name}</div>
               <p class="text-cardiff-dark text-base">${topic.description || ''}</p>
             </div>
@@ -59,9 +59,9 @@ function renderOpenDay(data: any) {
                   </tr>
                   <dialog id="mod${program.id}">
                     <div class="bg-white p-4">
-                      <h2 class="m-4 text-cardiff-red">${program.title}</h2>
+                      <h2 class="m-4 text-cardiff-red font-bold">${program.title}</h2>
                       <p class="text-cardiff-dark">${program.description}</p>
-                      <button onClick="mod${program.id}.close()" class="mt-4">Close</button>
+                      <button onClick="mod${program.id}.close()" class="mt-4 bg-cardiff-dark text-white">Close</button>
                       </div>
                     </dialog>
                 `: '').join('')}
